@@ -1,0 +1,81 @@
+{% load static %}
+
+<html>
+<head>
+<title>Rice Leaf Disease Detection System</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="header">
+  <div id="logo">
+    <font>Predicting the Rice Leaf Diseases using CNN</font>
+  </div>
+</div>
+
+<!-- ✅ MENU with only Registration and Login options -->
+<div id="menu">
+  <ul>
+    <li><a href="{% url 'Register' %}">Registration</a></li>
+    <li><a href="{% url 'Login' %}">Login</a></li>
+  </ul>
+</div>
+
+<!-- ✅ Main Content -->
+<div style="width:80%;margin:auto;text-align:justify;padding:20px;">
+  <h2 style="text-align:center;color:green;">🌾 Rice Leaf Disease Detection and Solution System</h2>
+  <p>
+    The Rice Leaf Disease Detection System is a smart web application designed to help farmers and researchers 
+    identify common diseases affecting rice plants. It uses advanced <b>Convolutional Neural Networks (CNN)</b> to 
+    analyze the uploaded image of a rice leaf and automatically detect whether the leaf is <b>Healthy</b> or affected by 
+    a specific disease. The system also recommends the appropriate <b>chemical treatment, water management</b> tips, and 
+    <b>farming advice</b> based on the detected disease.
+  </p>
+
+  <h3>🔍 How It Works</h3>
+  <p>
+    The system uses a pre-trained <b>Deep Learning model</b> that can identify and classify rice leaf diseases 
+    by examining the color, texture, and pattern of the uploaded leaf image. Once a user uploads an image, 
+    the system processes it, performs feature extraction, and predicts the disease type with high accuracy.
+  </p>
+
+  <h3>🌿 Diseases It Can Detect</h3>
+  <ul>
+    <li><b>Healthy:</b> Leaf is normal, no signs of infection.</li>
+    <li><b>Brown Spot:</b> Caused by fungus <i>Bipolaris oryzae</i>, appears as brown lesions on leaves.</li>
+    <li><b>Leaf Blast:</b> Caused by fungus <i>Magnaporthe oryzae</i>, shows diamond-shaped grayish spots.</li>
+    <li><b>Leaf Blight:</b> Bacterial infection caused by <i>Xanthomonas oryzae</i>, causes yellowing and drying of leaves.</li>
+  </ul>
+
+  <h3>⚙️ Process Flow</h3>
+  <ol>
+    <li><b>Step 1:</b> Collect images of rice leaves (Healthy, Brown Spot, Leaf Blast, Leaf Blight).</li>
+    <li><b>Step 2:</b> Train the CNN and VGG16 models using these images.</li>
+    <li><b>Step 3:</b> Upload a new rice leaf image from the field.</li>
+    <li><b>Step 4:</b> The trained model analyzes the image and identifies the disease.</li>
+    <li><b>Step 5:</b> The system displays:
+      <ul>
+        <li>✅ Disease Name</li>
+        <li>✅ Stage of Disease (Early / Moderate / Severe)</li>
+        <li>✅ Chemical Solution</li>
+        <li>✅ Water Suggestion</li>
+        <li>✅ Helpful Farming Advice</li>
+      </ul>
+    </li>
+  </ol>
+
+  <h3>🌱 Benefits</h3>
+  <ul>
+    <li>✔ Quick and accurate rice disease identification</li>
+    <li>✔ Provides chemical and water management recommendations</li>
+    <li>✔ Helps reduce crop loss and improve yield</li>
+    <li>✔ Easy to use — just upload a leaf image</li>
+    <li>✔ Supports farmers with AI-based decision-making</li>
+  </ul>
+</div>
+
+<div id="templatemo_footer">
+Rice Leaf Disease Detection System
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load static %}
+
+<html>
+<head>
+<title>Rice Leaf Diseases Detection - User Dashboard</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="header"><div id="logo"><font>Predicting the Rice Leaf Diseases using CNN</font></div></div>
+
+<div id="menu">
+  <ul>
+    <li><a href="{% url 'Train' %}">Train CNN Algorithm</a></li>
+    <li><a href="{% url 'Upload' %}">Upload Rice Image</a></li>
+    <li><a href="{% url 'index' %}">Logout</a></li>
+  </ul>
+</div>
+
+<p>
+Rice leaf diseases significantly impact crop quality and yield. Farmers often face challenges identifying them manually.
+This system leverages CNN to automate disease detection with high precision. The dataset includes <b>Brown Spot</b>, 
+<b>Leaf Blight</b>, <b>Leaf Blast</b>, and <b>Healthy</b> categories. The trained model based on VGG-16 provides 
+over <b>92.5% accuracy</b> and suggests preventive measures dynamically.
+</p>
+
+<div id="templatemo_footer">
+Rice Leaf Disease Detection System
+</div>
+</body>
+</html>

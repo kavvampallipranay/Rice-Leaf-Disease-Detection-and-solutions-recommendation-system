@@ -1,0 +1,61 @@
+{% load static %}
+
+<html>
+<head>
+<title>Rice Leaf Disease Detection - Upload Image</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+<script>
+function validate(){
+  var x=document.forms["f1"]["t1"].value;
+  if(x==""||x==null){alert("Please upload an image.");return false;}
+  return true;
+}
+</script>
+</head>
+<body>
+<div id="header">
+  <div id="logo">
+    <font>Predicting the Rice Leaf Diseases using CNN</font>
+  </div>
+</div>
+
+<div id="menu">
+  <ul>
+    <li><a href="{% url 'Train' %}">Train CNN Algorithm</a></li>
+    <li><a href="{% url 'Upload' %}">Upload Rice Image</a></li>
+    <li><a href="{% url 'index' %}">Logout</a></li>
+  </ul>
+</div>
+
+<form name="f1" method="post" action={% url 'UploadImage' %} enctype="multipart/form-data" onsubmit="return validate()">
+  {% csrf_token %}
+  <h3>Upload Rice Leaf Image</h3>
+
+  <label>Select Image</label> 
+  <input type="file" name="t1" />
+  <input type="submit" value="Submit" />
+
+{% if prediction %}
+  <div style="margin-top:30px;text-align:center;">
+    <h3>Prediction Result</h3>
+    <font color="green"><b>{{ prediction }}</b></font><br/>
+    <img src="{{ image_url }}" width="400" height="300" style="border-radius:10px;margin-top:15px;"/>
+
+    <br><br>
+    <table border="1" align="center" cellpadding="10" style="border-collapse:collapse; font-size:16px;">
+      <tr><th>Disease</th><td>{{ prediction }}</td></tr>
+      <tr><th>Stage</th><td>{{ stage }}</td></tr>
+      <tr><th>Chemical Solution</th><td>{{ chemical }}</td></tr>
+      <tr><th>Water Suggestion</th><td>{{ water }}</td></tr>
+      <tr><th>Advice</th><td>{{ advice }}</td></tr>
+    </table>
+  </div>
+{% endif %}
+</form>
+
+<div id="templatemo_footer">
+Rice Leaf Disease Detection System
+</div>
+</body>
+</html>

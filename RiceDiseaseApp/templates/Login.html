@@ -1,0 +1,154 @@
+{% load static %}
+
+<html>
+<head>
+<title>Rice Leaf Diseases Detection and Solution Recommendation System</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+
+<style>
+  body {
+    background-image: url("{% static 'images/bg.png' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  form {
+    background-color: rgba(255, 255, 255, 0.85);
+    width: 400px;
+    margin: 120px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+  }
+
+  h3 {
+    color: #164421;
+    margin-bottom: 20px;
+  }
+
+  label {
+    display: block;
+    text-align: left;
+    margin: 10px 0 5px 0;
+    font-weight: 500;
+    color: #164421;
+  }
+
+  input[type="text"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    outline: none;
+  }
+
+  input[type="submit"] {
+    background-color: #164421;
+    color: white;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.3s;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #164421;
+  }
+
+  #header {
+    background-color: rgba(21, 61, 21, 0.85);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 22px;
+    font-weight: 600;
+  }
+
+  #menu {
+    background-color: rgba(0, 100, 0, 0.8);
+    text-align: center;
+    padding: 10px 0;
+  }
+
+  #menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #menu ul li {
+    display: inline-block;
+    margin: 0 20px;
+  }
+
+  #menu ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  #menu ul li a:hover {
+    text-decoration: underline;
+  }
+
+  #templatemo_footer {
+    position: fixed;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    color: white;
+    text-shadow: 0 0 5px black;
+  }
+</style>
+
+<script>
+function validate(){
+  var x=document.forms["f1"]["username"].value;
+  var y=document.forms["f1"]["password"].value;
+  if(x==""||x==null){alert("Username must be entered");return false;}
+  if(y==""||y==null){alert("Password must be entered");return false;}
+  return true;
+}
+</script>
+
+</head>
+
+<body>
+<div id="header">
+  <div id="logo"><font>Predicting the Rice Leaf Diseases using CNN</font></div>
+</div>
+
+<div id="menu">
+  <ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'Login' %}">Login</a></li>
+  </ul>
+</div>
+
+<form name="f1" method="post" action="{% url 'UserLogin' %}" onsubmit="return validate()">
+  {% csrf_token %}
+  <h3>User Login</h3>
+  <center><font color="red">{{ data }}</font></center>
+
+<label>Username</label> <input type="text" name="username" placeholder="Enter Username"/>
+
+<label>Password</label> <input type="password" name="password" placeholder="Enter Password"/>
+
+  <input type="submit" value="Login" />
+</form>
+
+<div id="templatemo_footer">
+ Rice Leaf Disease Detection System
+</div>
+
+</body>
+</html>

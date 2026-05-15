@@ -1,0 +1,67 @@
+{% load static %}
+<html>
+<head>
+<title>Rice Leaf Disease Detection - Train Model</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+
+<body>
+
+<div id="header">
+  <div id="logo">
+    <font>Predicting the Rice Leaf Diseases using CNN</font>
+  </div>
+</div>
+
+<div id="menu">
+  <ul>
+    <!-- This only OPENS the page -->
+    <li><a href="{% url 'Train' %}">Train Page</a></li>
+    <li><a href="{% url 'Upload' %}">Upload Rice Image</a></li>
+    <li><a href="{% url 'index' %}">Logout</a></li>
+  </ul>
+</div>
+
+<!-- REAL TRAIN BUTTON -->
+<div style="width:90%;margin:40px auto;text-align:center;">
+
+  <form method="POST">
+    {% csrf_token %}
+    <button type="submit" style="padding:10px 20px;font-size:16px;">
+      Train CNN Algorithm
+    </button>
+  </form>
+
+  <br><br>
+
+  <!-- Show accuracy / message -->
+  {% if msg %}
+    <h3 style="color:green;">{{ msg }}</h3>
+  {% endif %}
+
+  {% if cnn %}
+    <table border="1" align="center">
+      <tr>
+        <th>Algorithm</th>
+        <th>Accuracy</th>
+      </tr>
+      <tr>
+        <td>CNN</td>
+        <td>{{ cnn }}</td>
+      </tr>
+      <tr>
+        <td>VGG16</td>
+        <td>{{ vgg }}</td>
+      </tr>
+    </table>
+  {% endif %}
+
+</div>
+
+<div id="templatemo_footer">
+Rice Leaf Disease Detection System
+</div>
+
+</body>
+</html>

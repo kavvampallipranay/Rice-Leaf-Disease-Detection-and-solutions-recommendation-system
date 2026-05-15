@@ -1,0 +1,36 @@
+{% load static %}
+<html>
+<head>
+<title>Predicting the Rice leaf diseases using CNN</title>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+</head>
+<body>
+<div id="wrapper">
+	<div id="header">
+		<div id="logo">
+			<center><font size="4" color="yellow">Predicting the Rice leaf diseases using CNN</font></center>
+		</div>
+		<div id="slogan">
+			
+		</div>
+	</div>
+	<div id="menu">
+		<ul><center>
+	  <li><a href="{% url 'index' %}">Home</a></li>
+      <li><a href="{% url 'Login' %}">Login</a></li>
+	  <li><a href="{% url 'Register' %}">Register Here</a></li>
+      		
+		</center></ul>
+		<br class="clearfix" />
+	</div>
+	<div id="splash">
+		<img class="pic" src="{% static 'images/investor.jpg' %}" width="870" height="230" alt="" />
+	</div>
+	<br/>
+	<p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'>
+		Abstract-Rice leaf diseases have occurred all over the world, including china. They have had a significant impact on rice quality and yield. Now, the control method rely mainly on artificial means. It is very difficult for the farmers to manually identify these diseases accurately with their limited knowledge. Recent developments in Deep Learning show that Automatic Image Recognition systems using Convolutional Neural Network (CNN) models can be very beneficial in such problems. The CNN classification algorithm is used mainly for 2D and 3D images. There are many inbuilt functions and algorithms in CNN.</p><p align="justify"><font size="3" style="font-family: Comic Sans MS" color='black'> This dataset is taken from Kaggle. The dataset contains 4 categories where each category represents respective diseases namely Brown Spot, Leaf blight, Leaf blast, Healthy. The proposed CNN architecture is based on VGG-16 and is trained and tested on the dataset collected from rice fields and the internet. The accuracy of the proposed model is above 92.5%. After Classifying the categories in the data set the proposed model should be able to predict the image which are given dynamically.
+
+</p>
+</body>
+</html>

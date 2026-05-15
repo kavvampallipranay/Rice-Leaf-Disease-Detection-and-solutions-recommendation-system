@@ -1,0 +1,59 @@
+{% load static %}
+
+<html>
+<head>
+<title>Rice Leaf Disease Detection - Register</title>
+<meta charset="utf-8" />
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+<script>
+function validate(){
+  var x=document.forms["f1"]["username"].value;
+  var y=document.forms["f1"]["password"].value;
+  var c=document.forms["f1"]["contact"].value;
+  var e=document.forms["f1"]["email"].value;
+  var a=document.forms["f1"]["address"].value;
+  if(x==""||x==null){alert("Username must be entered");return false;}
+  if(y==""||y==null){alert("Password must be entered");return false;}
+  if(c==""||c==null){alert("Contact must be entered");return false;}
+  if(isNaN(c)){alert("Enter a valid contact number");return false;}
+  if(e==""||e==null){alert("Email must be entered");return false;}
+  if(!e.match(/^([a-zA-Z0-9_\.\-])+\@(gmail+\.)+(com)+$/)){alert("Enter valid Gmail address");return false;}
+  if(a==""||a==null){alert("Address must be entered");return false;}
+  return true;
+}
+</script>
+</head>
+<body>
+<div id="header"><div id="logo"><font>Predicting the Rice Leaf Diseases using CNN</font></div></div>
+
+<div id="menu">
+  <ul>
+    <li><a href="{% url 'index' %}">Home</a></li>
+    <li><a href="{% url 'Login' %}">Login</a></li>
+    <li><a href="{% url 'Register' %}">Register</a></li>
+  </ul>
+</div>
+
+<form name="f1" method="post" action={% url 'Signup' %} onsubmit="return validate()">
+  {% csrf_token %}
+  <h3>New User Registration</h3>
+  <center><font color="red">{{ data }}</font></center>
+
+<label>Username</label> <input type="text" name="username" />
+
+<label>Password</label> <input type="password" name="password" />
+
+<label>Contact No</label> <input type="text" name="contact" />
+
+<label>Email ID</label> <input type="email" name="email" />
+
+<label>Address</label> <input type="text" name="address" />
+
+  <input type="submit" value="Register" />
+</form>
+
+<div id="templatemo_footer">
+Rice Leaf Disease Detection System
+</div>
+</body>
+</html>
